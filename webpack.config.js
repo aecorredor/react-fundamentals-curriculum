@@ -14,7 +14,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   // entry point used by babel loader to properly transpile JSX
   entry: [
-    '.app/index.html'
+    './app/index.js'
   ],
   // babel will spit out its results in the path specified by this output
   // property. The contents will be in a file called index_bundle.js
