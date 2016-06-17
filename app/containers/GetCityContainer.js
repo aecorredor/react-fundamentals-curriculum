@@ -25,7 +25,7 @@ var GetCityContainer = React.createClass({
   handleSubmitCity: function(event) {
       event.preventDefault();
       if(!this.state.city) {
-
+        // no city entered, do nothing
       } else {
         this.context.router.push('/forecast/' + this.state.city);
       }

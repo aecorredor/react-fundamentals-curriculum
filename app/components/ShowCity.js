@@ -1,9 +1,14 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 
 function ShowCity(props) {
-  return (
-    <h1>Show City Forecast</h1>
-  );
+  return props.isLoading
+    ? <div>Loading...</div>
+    : <div>done loading</div>
 }
+
+ShowCity.propTypes = {
+  forecast: PropTypes.object.isRequired
+};
 
 module.exports = ShowCity;
