@@ -17,7 +17,6 @@ var ShowCityContainer = React.createClass({
           isLoading: false,
           forecast: result
         });
-        console.log(this.state.forecast);
       }.bind(this));
   },
   // called after initial render
@@ -32,6 +31,8 @@ var ShowCityContainer = React.createClass({
   render: function() {
     return (
       <ShowCity
+        city={this.props.routeParams.city}
+        isLoading={this.state.isLoading}
         forecast={this.state.forecast}/>
     );
   }

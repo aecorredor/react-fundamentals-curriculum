@@ -48,8 +48,10 @@ var helpers = {
     return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city +
                      '&type=accurate&APPID=' + apiKey + '&cnt=5')
                      .then(function(results){
+                       console.log(results);
                        var finalResult = {
                          city: results.data.city.name,
+                         country: results.data.city.country,
                          days: []
                        };
                        for (var i = 0; i < results.data.cnt; i++) {
