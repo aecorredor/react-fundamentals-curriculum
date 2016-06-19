@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var DayItem = require('./DayItem');
+var Loading = require('./Loading');
 
 var styles = {
   forecastContainer: {
@@ -40,6 +41,8 @@ function ForecastContainer(props) {
                   key={day.date}
                   date={day.date}
                   icon={day.icon}
+                  // bind here just send the current day item as the parameter
+                  // of the onGetCityDetail to be used in the actual item
                   onGetCityDetail={props.onGetCityDetail.bind(null, day)} />;
         })}
       </div>
@@ -50,7 +53,7 @@ function ForecastContainer(props) {
 
 function ShowCity(props) {
   return props.isLoading
-    ? <div style={styles.header}>Loading...</div>
+    ? <Loading speed={150}/>
     : <ForecastContainer
         city={props.forecast.city}
         country={props.forecast.country}

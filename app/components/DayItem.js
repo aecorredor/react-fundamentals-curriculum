@@ -7,7 +7,8 @@ var styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 25
+    margin: 25,
+    cursor: 'pointer'
   },
   img: {
     paddingBottom: '15%',
@@ -22,7 +23,7 @@ var styles = {
 
 function DayItem(props) {
   return (
-    <div style={styles.item} onClick={console.log(props)}>
+    <div style={styles.item} onClick={props.onGetCityDetail}>
       <img src={'app/images/weather-icons/' + (props.icon) + '.svg'} style={styles.img} alt='Weather'/>
       <h2 style={styles.date}>{props.date}</h2>
     </div>
@@ -32,7 +33,7 @@ function DayItem(props) {
 DayItem.propTypes = {
   icon: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  onGetCityDetail: PropTypes.func,
+  onGetCityDetail: PropTypes.func.isRequired,
 };
 
 module.exports = DayItem;
