@@ -3,7 +3,9 @@ var CityDetail = require('../components/CityDetail');
 
 function CityDetailContainer(props) {
   return (
-    <CityDetail />
+    <CityDetail
+      city={props.routeParams.city}
+      cityDetail={props.location.state.dayDetail}/>
   );
 }
 

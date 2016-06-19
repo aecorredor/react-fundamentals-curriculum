@@ -41,6 +41,7 @@ function ForecastContainer(props) {
                   key={day.date}
                   date={day.date}
                   icon={day.icon}
+                  cursor='pointer'
                   // bind here just send the current day item as the parameter
                   // of the onGetCityDetail to be used in the actual item
                   onGetCityDetail={props.onGetCityDetail.bind(null, day)} />;

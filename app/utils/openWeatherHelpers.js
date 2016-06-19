@@ -56,6 +56,7 @@ var helpers = {
                        for (var i = 0; i < results.data.cnt; i++) {
                          currentDay = results.data.list[i];
                          finalResult.days[i] = {
+                           country: results.data.city.country,
                            date: convertTime(currentDay.dt),
                            weather: currentDay.weather[0].description,
                            icon: currentDay.weather[0].icon,
