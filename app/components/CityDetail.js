@@ -31,7 +31,6 @@ function capitalize(string) {
 }
 
 function CityDetail(props) {
-  console.log(props);
   return (
     <div style={styles.container}>
       <h1 style={styles.header}>{capitalize(props.city + ', ' + props.cityDetail.country)}</h1>
