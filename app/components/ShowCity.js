@@ -1,6 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var DayItem = require('../components/DayItem');
+var DayItem = require('./DayItem');
 
 var styles = {
   forecastContainer: {
@@ -36,7 +36,11 @@ function ForecastContainer(props) {
       <h2 style={styles.subheader}>Click on a day for details</h2>
       <div style={styles.forecastContainer}>
         {props.forecast.days.map(function(day) {
-          return <DayItem key={day.date} icon={day.icon} date={day.date}/>;
+          return <DayItem
+                  key={day.date}
+                  date={day.date}
+                  icon={day.icon}
+                  onGetCityDetail={props.onGetCityDetail.bind(null, day)} />;
         })}
       </div>
     </div>
@@ -50,13 +54,15 @@ function ShowCity(props) {
     : <ForecastContainer
         city={props.forecast.city}
         country={props.forecast.country}
-        forecast={props.forecast}/>;
+        forecast={props.forecast}
+        onGetCityDetail={props.onGetCityDetail}/>;
 }
 
 ShowCity.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   city: PropTypes.string.isRequired,
-  forecast: PropTypes.object.isRequired
+  forecast: PropTypes.object.isRequired,
+  onGetCityDetail: PropTypes.func.isRequired
 };
 
 module.exports = ShowCity;
